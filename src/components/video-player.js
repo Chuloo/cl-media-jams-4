@@ -15,17 +15,20 @@ export const VideoPlayer = ({ publicId }) => {
       controls: true,
       autoPlay: true,
       width: 500,
+      playedEventPercents: [10, 50, 90],
       analytics: {
         events: [
-          'play',
-          'pause',
-          'ended',
-          { type: 'percentsplayed', percents: [10, 40, 70, 90] },
-          'error',
-          'volumechange',
-          'mute',
-          'unmute',
-          'qualitychanged',
+          "play",
+          "pause",
+          "ended",
+          "percentsplayed",
+          "error",
+          "volumechange",
+          "mute",
+          "unmute",
+          "qualitychanged",
+          "seek",
+          "fullscreenchange"
         ]
       }
     })
