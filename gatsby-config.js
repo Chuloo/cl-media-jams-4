@@ -28,14 +28,31 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-google-gtag`,
+    //   options:{
+    //     trackingIds: [
+    //       "G-MX80LMN3ZW"
+    //     ],
+    //     pluginConfig:{
+    //       head: true
+    //     }
+    //   }
+    // },
     {
-      resolve: `gatsby-plugin-google-gtag`,
-      options:{
-        trackingIds: [
-          "G-MX80LMN3ZW"
-        ]
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-111204936-2",
+        head: true
       }
     },
+    // {
+    //   resolve: `gatsby-plugin-gtag`,
+    //   options: {
+    //     trackingId: "G-GL3BTL0Z32",
+    //     head: true
+    //   }
+    // },
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
