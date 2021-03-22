@@ -1,6 +1,5 @@
 import React, { useEffect } from "react"
 import cloudinary from "cloudinary-core"
-import "lodash/lodash.js"
 import "cloudinary-video-player/dist/cld-video-player.js"
 import "cloudinary-video-player/dist/cld-video-player.min.css"
 
@@ -34,7 +33,7 @@ export const VideoPlayer = ({ publicId }) => {
     })
 
     vidPlayer.source(publicId)
-  }, [publicId])
+  }, [publicId, cld])
 
 
   return (
