@@ -7,18 +7,6 @@ import "cloudinary-video-player/dist/cld-video-player.min.css"
 
 export const VideoPlayer = ({ publicId }) => {
   let cld = cloudinary.Cloudinary.new({ cloud_name: "chuloo", secure: true })
-    // if (typeof window !== "undefined") {
-    //   if (!window.ga && window.gaGlobal) {
-    //     console.log("google analytics started")
-    //     window.ga = window.gaGlobal
-    //   }
-    //   if (!window.ga) {
-    //     console.log("google analytics script is not loaded")
-    //     window.ga = (arg) => {
-    //       console.log(arg)
-    //     }
-    //   }
-    // }
 
   useEffect(() => {
     // create a new cloudinary instance with config
@@ -27,13 +15,23 @@ export const VideoPlayer = ({ publicId }) => {
       controls: true,
       autoPlay: true,
       width: 500,
-      analytics: true
+      analytics: {
+        events: [
+          'play',
+          'pause',
+          'ended',
+          { type: 'percentsplayed', percents: [10, 40, 70, 90] },
+          'error',
+          'volumechange',
+          'mute',
+          'unmute',
+          'qualitychanged',
+        ]
+      }
     })
 
     vidPlayer.source(publicId)
-    vidPlayer.on("play", console.log("Video is being played"))
-    vidPlayer.on("pause", console.log("Video is being paused"))
-  })
+  }, [publicId])
 
 
   return (
